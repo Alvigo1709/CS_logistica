@@ -1,5 +1,6 @@
 // js/checksession.js
 document.addEventListener("DOMContentLoaded", () => {
+  window.history.forward();
   // Obtener datos del usuario desde localStorage
   const userData = localStorage.getItem('usuarioLogueado');
   let user = null;
@@ -32,4 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Si todo está bien, no pasa nada y continúa
+// Si el usuario intenta volver con el botón atrás
+window.addEventListener('pageshow', function(event) {
+  const userData = localStorage.getItem('usuarioLogueado');
+  if (!userData && event.persisted) {
+    // Página fue restaurada desde caché => forzar redirección
+    window.location.replace('../login.html');
+  }
+
+});
+
 });
