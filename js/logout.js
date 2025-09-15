@@ -10,10 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     logoutBtn.addEventListener('click', () => {
     localStorage.clear();
-    window.location.href = '../login.html'; // cambia a './login.html' si estás en raíz
+    window.location.replace('../login.html'); // cambia a './login.html' si estás en raíz
      // Evitar volver con el botón atrás
     window.history.pushState(null, "", window.location.href);
     window.onpopstate = function () {
     window.history.go(1);};
   });
 });
+
