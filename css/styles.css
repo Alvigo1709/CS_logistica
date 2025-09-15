@@ -1,1 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1E2A38, #5C6BC0);
+  min-height: 50vh;   /* ✅ permite scroll cuando hay más contenido */
+}
 
+
+/* ⛔ Aplica centrado solo al login */
+body:not(.admin-page) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Contenedor principal del login */
+.login-wrapper {
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  width: 180px;
+  margin-bottom: 32px;
+}
+
+/* Título */
+.login-box h2 {
+  color: #1E2A38;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #5C6BC0;
+  outline: none;
+}
+
+/* Botón */
+/* Estilo específico para botones del login y del formulario de crear usuario */
+.login-box button,
+.form-container button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2ECC71;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-box button:hover,
+.form-container button:hover {
+  background-color: #27ae60;
+  transform: scale(1.015);
+}
+
+
+/* Error */
+#error-message {
+  margin-top: 20px;
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.dashboard-container {
+  display: flex;
+  justify-content: flex-start;    /* Alineación horizontal izquierda */
+  align-items: flex-start;        /* Alineación vertical arriba */
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgb(255, 152, 35);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+  width: 160px;
+  margin: 0;                      /* 👈 elimina cualquier centrado automático */
+}
+
+
+/* Estilo para botón de logout flotante */
+#logout-btn.logout-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 18px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 9999;
+  width: auto !important;
+  max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#logout-btn.logout-button:hover {
+  background-color: #c0392b;
+}
+/* Reutiliza tus estilos base, y agrega esto si falta */
+
+#resultados {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Fuerza 4 columnas */
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+  margin-top: 20px;
+  padding: 10px;
+}
+/* TÍTULO en blanco */
+.titulo {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.totales,
+.envia-resultados {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.producto-card {
+  background-color: #f2f2f2; /* Blanco claro */
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
