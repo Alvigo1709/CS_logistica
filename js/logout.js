@@ -1,4 +1,3 @@
-// js/logout.js
 document.addEventListener('DOMContentLoaded', () => {
   if (!document.getElementById('logout-btn')) {
     const logoutBtn = document.createElement('button');
@@ -9,11 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     logoutBtn.addEventListener('click', () => {
       localStorage.clear();
+      sessionStorage.clear(); // 🧼 Seguridad extra
       window.location.href = '../login.html';
     });
   }
 
-  // Evita volver con el botón "atrás"
+  // 👇 Esto ayuda con el botón atrás
   window.history.pushState(null, "", window.location.href);
   window.onpopstate = function () {
     window.history.go(1);
