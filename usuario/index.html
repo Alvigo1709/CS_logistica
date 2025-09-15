@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel de usuario</title>
 
+  <!-- Enlace al archivo de estilos principal (el mismo que usamos en login) -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <!-- Google Material Icons para mostrar íconos vectoriales -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Estilos específicos para esta página (ícono + botón) -->
+<style>
+  /* 🔁 Eliminar márgenes/paddings por defecto del navegador */
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Contenedor general del dashboard */
+   .dashboard-container {
+    /* Mostrar contenido en columna */
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /*espacio entre botones*/
+
+    /* Alineado completo a la esquina superior izquierda */
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    /* Altura completa de la pantalla */
+    min-height: 100vh;
+
+    /* Espacio desde los bordes (top y left principalmente) */
+    padding: 40px 40px;
+  }
+   /* Botón visual con ícono y texto */
+  .icon-button {
+
+    display: flex;
+    flex-direction: column;
+
+    /* 🔧 Alineamos el botón también a la izquierda del contenedor */
+    align-items: center;
+    text-align: center;
+
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgb(255, 152, 35);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+  }
+
+  /* Efecto hover */
+  .icon-button:hover {
+    background-color: #f3f3f3;
+    transform: scale(1.03);
+  }
+
+  /* Ícono visual */
+  .icon-button .material-icons {
+    font-size: 48px;
+    color: #5C6BC0;
+    margin-bottom: 10px;
+  }
+
+  /* Texto debajo del ícono */
+  .icon-button span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1E2A38;
+  }
+</style>
+
+<link rel="icon" type="image/png" href="../assets/c logo.png">
+</head>
+<body class="admin-page">
+
+
+  <!-- Contenedor principal de la sección -->
+  <div class="dashboard-container">
+
+    <!-- Botón con ícono y texto que redirige al buscador de fichas tecnicas -->
+    <div class="icon-button" onclick="window.location.href='buscadorfichastecnicas.html'">
+      <span class="material-icons">manage_search</span> <!-- Ícono: Añadir persona -->
+      <span>Fichas Tecnicas</span> <!-- Texto debajo del ícono -->
+    </div>
+
+            <!-- Botón con ícono y texto que redirige al cotizador de flete -->
+    <div class="icon-button" onclick="window.location.href='cotizador.html'">
+      <span class="material-icons">request_quote</span>
+      <span>Fichas Técnicas</span>
+    </div>
+
+  </div>
+
+
+
+  <!-- Script de protección: si no hay sesión activa, redirige a login -->
+  <script type="module" src="../js/protect.js"></script>
+
+<script type="module" src="../js/logout.js"></script>
+
+
+
+</body>
+</html>

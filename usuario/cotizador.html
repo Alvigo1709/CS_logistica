@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cotizador - Etapa 2</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #2c3e50, #4a69bd);
+      color: #111;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .titulo {
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 4px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #2ecc71;
+      color: white;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #ff7300;
+    }
+
+    .producto-card,
+    .totales,
+    .resultados-proveedor {
+      background-color: #f8f8f8;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .producto-card h3 {
+      margin-top: 0;
+    }
+
+    .resultados-proveedor ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resultados-proveedor li {
+      padding: 8px;
+      margin: 4px 0;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* Escala condicional de verde → rojo */
+    .precio-verde { background-color: #27ae60; }
+    .precio-amarillo { background-color: #f39c12; }
+    .precio-rojo { background-color: #c0392b; }
+
+    .preferencias {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Mensaje de confirmación/alerta */
+    #mensajeRegistro {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="../assets/c logo.png">
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Cotizador de flete</h1>
+
+    <!-- Campo de destino -->
+    <label>Destino:</label>
+    <input type="text" id="destinoInput" list="destinoList" placeholder="Escriba el destino..." />
+    <datalist id="destinoList"></datalist>
+
+    <!-- Número de cotización -->
+    <label>Número de cotización:</label>
+    <input type="text" id="numeroCotizacion" />
+
+    <!-- Precio total -->
+    <div class="inline-group">
+      <div style="flex: 1;">
+        <label>Precio total de la cotización:</label>
+        <input type="number" id="precioCotizacion" min="0" step="1000" />
+      </div>
+
+      <div style="flex: 1;">
+        <label>¿Cuántos productos desea cotizar?</label>
+        <input type="number" id="cantidadProductos" min="1" max="10" />
+      </div>
+
+      <!-- Botón que genera los productos dinámicamente -->
+      <button id="generar">Generar Productos</button>
+    </div>
+
+    <!-- Contenedor dinámico de productos -->
+    <div id="productosContainer"></div>
+
+    <!-- Totales -->
+    <div class="totales">
+      <p><strong>Peso total:</strong> <span id="pesoTotal">0</span> kg</p>
+      <p><strong>Cubicaje total:</strong> <span id="cubicajeTotal">0</span> m³</p>
+      <p><strong>Paquetes:</strong> <span id="paquetes">0</span></p>
+      <p><strong>Valor Final:</strong> <span id="valorFinal">0</span> COP</p>
+
+    </div>
+
+    <!-- Resultados de cada proveedor -->
+    <div class="resultados-proveedor">
+      <h3>Envia</h3>
+      <ul id="resultadosEnvia"></ul>
+    </div>
+
+    <div class="resultados-proveedor">
+      <h3>Cotranstame</h3>
+      <ul id="resultadosCotranstame"></ul>
+    </div>
+
+    <div class="resultados-proveedor">
+      <h3>TCC</h3>
+      <ul id="resultadosTcc"></ul>
+    </div>
+
+    <!-- Preferencias -->
+    <div class="preferencias">
+      <h3>Preferencias de Cotización</h3>
+      <label for="origenPreferido">Seleccione origen preferido:</label>
+      <select id="origenPreferido">
+        <option value="">-- Seleccione Origen --</option>
+        <option value="BARRANQUILLA - ATLANTICO">Barranquilla</option>
+        <option value="CARTAGENA - BOLIVAR">Cartagena</option>
+        <option value="BOGOTA D.C. - CUNDINAMARCA">Bogotá</option>
+      </select>
+
+      <label for="proveedorPreferido">Seleccione proveedor preferido:</label>
+      <select id="proveedorPreferido">
+        <option value="">-- Seleccione Proveedor --</option>
+        <option value="Envia">Envia</option>
+        <option value="Cotranstame">Cotranstame</option>
+        <option value="TCC">TCC</option>
+      </select>
+    </div>
+
+    <!-- Botón para guardar cotización -->
+    <button id="registrarCotizacion">Registrar Cotización</button>
+    <p id="mensajeRegistro"></p>
+  </div>
+
+  <!-- Script principal -->
+  <script type="module" src="../js/cotizador.js"></script>
+  <script type="module" src="../js/logout.js"></script>
+</body>
+</html>
