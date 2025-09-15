@@ -35,12 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const userLogueado = {
-        username: userData.username,
-        rol: userData.rol
-      };
-      localStorage.setItem("usuarioLogueado", JSON.stringify(userLogueado));
-      
+      localStorage.setItem("usuario", userData.username);
+      localStorage.setItem("rol", userData.rol);
 
       if (userData.rol === "admin") {
         window.location.href = "admin/dashboard.html";
@@ -53,4 +49,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
