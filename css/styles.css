@@ -6,6 +6,7 @@ body {
   min-height: 50vh;   /* ✅ permite scroll cuando hay más contenido */
 }
 
+
 /* ⛔ Aplica centrado solo al login */
 body:not(.admin-page) {
   display: flex;
@@ -182,6 +183,7 @@ input:focus {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
 
 
 
