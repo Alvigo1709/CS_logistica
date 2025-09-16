@@ -20,8 +20,9 @@ body:not(.admin-page) {
   border-radius: 18px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
   padding: 48px 40px;
-  max-width: 420px;   /* ✅ ancho máximo */
-  width: auto;        /* ✅ evita ocupar todo */
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,6 +182,7 @@ input:focus {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
 
 
 
