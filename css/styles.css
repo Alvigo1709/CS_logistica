@@ -1,12 +1,14 @@
+/* Asegúrate que el body ocupe toda la pantalla */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #1E2A38, #5C6BC0);
-  min-height: 100vh;  /* ✅ ocupa toda la pantalla */
-  height: 100vh;
+  height: 100vh;         /* ✅ altura completa */
+  display: flex;         /* ✅ convertimos en contenedor flex */
+  justify-content: center; /* ✅ centra horizontal */
+  align-items: center;     /* ✅ centra vertical */
 }
-
 
 
 /* ⛔ Aplica centrado solo al login */
@@ -23,9 +25,8 @@ body:not(.admin-page) {
   border-radius: 18px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
   padding: 48px 40px;
-  width: 100%;
-  max-width: 420px;
-  box-sizing: border-box;
+  max-width: 420px;   /* ✅ ancho máximo */
+  width: auto;        /* ✅ evita ocupar todo */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,4 +186,5 @@ input:focus {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
 
