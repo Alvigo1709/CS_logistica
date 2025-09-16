@@ -1,15 +1,10 @@
-/* Asegúrate que el body ocupe toda la pantalla */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #1E2A38, #5C6BC0);
-  height: 100vh;         /* ✅ altura completa */
-  display: flex;         /* ✅ convertimos en contenedor flex */
-  justify-content: center; /* ✅ centra horizontal */
-  align-items: center;     /* ✅ centra vertical */
+  min-height: 50vh;   /* ✅ permite scroll cuando hay más contenido */
 }
-
 
 /* ⛔ Aplica centrado solo al login */
 body:not(.admin-page) {
@@ -186,5 +181,6 @@ input:focus {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
 
 
