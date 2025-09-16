@@ -3,8 +3,10 @@ body {
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #1E2A38, #5C6BC0);
-  min-height: 50vh;   /* ✅ permite scroll cuando hay más contenido */
+  min-height: 100vh;  /* ✅ ocupa toda la pantalla */
+  height: 100vh;
 }
+
 
 
 /* ⛔ Aplica centrado solo al login */
@@ -183,3 +185,4 @@ input:focus {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
+
